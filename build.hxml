@@ -1,0 +1,8 @@
+#-cp lib/screepslib
+-cp lib/HaxeScreeps
+-cp nxscreeps
+#-cp src/nxscreeps/creepRoles
+#-cp src
+-main Main
+-js dist/main.js
+#-js ../dist/out.js
