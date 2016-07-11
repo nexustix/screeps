@@ -1,6 +1,7 @@
 #-cp lib/screepslib
 -cp lib/HaxeScreeps
 -cp nxscreeps
+#-cp nxscreeps/creepRoles
 #-cp src/nxscreeps/creepRoles
 #-cp src
 -main Main
