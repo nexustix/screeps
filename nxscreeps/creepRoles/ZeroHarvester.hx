@@ -1,5 +1,7 @@
 package nxscreeps.creepRoles;
 
+import nxscreeps.util.CreepUtil;
+
 
 class ZeroHarvester {
 
@@ -37,6 +39,16 @@ class ZeroHarvester {
         if (creep.carry["energy"] >= creep.carryCapacity) {
             creep.memory.working = false;
         }
+
+        //if (creep.memory.dropoff){
+
+        //}else{
+            //creep.memory.dropoff()
+        var potentialDropoffs: Array<Structure> = CreepUtil.getEnergyStorages(creep.room);
+        if ( !(potentialDropoffs.length < 1) ){
+            creep.memory.dropoff = potentialDropoffs[0];
+        }
+        //}
     }
 
     public static function act(creep: Creep) {
@@ -47,9 +59,9 @@ class ZeroHarvester {
                 creep.moveTo(tmpSource.pos);
             }
         }else{
-            var spawn: Array<StructureSpawn> = cast(creep.room.find(112));
-            if (creep.transfer(spawn[0], "energy") == -9){
-                creep.moveTo(spawn[0]);
+            //var spawn: Array<StructureSpawn> = cast(creep.room.find(112));
+            if (creep.transfer(creep.memory.dropoff, "energy") == -9){
+                creep.moveTo(creep.memory.dropoff);
             }
 
         }
