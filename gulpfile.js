@@ -19,7 +19,7 @@ gulp.task('compile', shell.task([
   'haxe build.hxml'
 ]))
 
-//deploys project to "test" branch
+//deploys project to branch specified in credentials
 gulp.task('test', ['compile'], function() {
   gulp.src('dist/*.js')
     .pipe(screeps(credentials));
